@@ -1,7 +1,8 @@
 class Api {
   constructor () {
-    this.pizza = { id: 1, name: 'pizza', topping: 'baloney', message: 'A spicy meatball'}
-    this.toppings = [ this.pizza.topping, this.pizza.topping, this.pizza.topping ]
+    this.pizza = { id: 1, name: 'pizza', topping: {id: 1, name: 'baloney'}, message: 'A spicy meatball'}
+    this.toppingsArr = [ this.pizza.topping, this.pizza.topping, this.pizza.topping ]
+    this.toppings = [this.pizza.topping.name, this.pizza.topping.name, this.pizza.topping.name ]
     this.messages = this.pizza.message
   }
 
@@ -14,6 +15,12 @@ class Api {
   getToppings(pizzaId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => resolve(this.toppings), 200)
+    })
+  }
+
+  getToppingsObj(pizzaId) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(this.toppingsArr), 200)
     })
   }
 

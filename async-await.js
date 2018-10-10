@@ -37,3 +37,14 @@ async function asyncAwait() {
 }
 
 asyncAwait();
+
+async function parallelLoop() {
+  const api = new Api();
+  const pizza = await api.getPizza()
+  const toppings = await api.getToppingsObj(pizza.id)
+  const toppingPromises = toppings.map(topping => api.getToppingsObj(topping.id))
+  const moreToppings = await Promise.all(toppingPromises)
+  console.log('parallelLoop', moreToppings)
+}
+
+parallelLoop();
