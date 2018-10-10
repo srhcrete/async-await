@@ -17,6 +17,7 @@ class Api {
     })
   }
 
+  //for testing error handling
   throwError() {
     return new Promise((resolve, reject) =>{
       setTimeout(() => reject(new Error('Intentional Error')), 200)

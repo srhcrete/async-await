@@ -16,18 +16,24 @@ function promiseChain() {
   .then(() => {
     message = pizza.message
     console.log('promiseChain', { name, toppings, message })
+  }).catch((err) => {
+    console.error(err);
   })
 }
 
 promiseChain();
 
 async function asyncAwait() {
-  const api = new Api();
-  const pizza = await api.getPizza()
-  const name = pizza.name
-  const toppings = await api.getToppings(pizza.id)
-  const message = pizza.message
-  console.log('asyncAwait', { name, toppings, message })
+  try{
+    const api = new Api();
+    const pizza = await api.getPizza()
+    const name = pizza.name
+    const toppings = await api.getToppings(pizza.id)
+    const message = pizza.message
+    console.log('asyncAwait', { name, toppings, message })
+  } catch(err) {
+    console.error(err)
+  }
 }
 
 asyncAwait();
