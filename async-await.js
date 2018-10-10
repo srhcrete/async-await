@@ -48,3 +48,24 @@ async function parallelLoop() {
 }
 
 parallelLoop();
+
+async function getPizzaInfo() {
+  const api = new Api();
+  const pizza = await api.getPizza()
+  const name = pizza.name
+  const toppings = await api.getToppings(pizza.id)
+  const message = pizza.message
+  return { name, toppings, message }
+}
+
+async function getLotsOfPizzaInfo(){
+  try {
+    const pizzaPromises = Array(10).fill(getPizzaInfo())
+    const pizzas = await Promise.all(pizzaPromises)
+    console.log('getLotsOfPizzaInfo', pizzas)
+  } catch(err) {
+    console.error(err)
+  }
+}
+
+getLotsOfPizzaInfo();
