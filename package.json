@@ -1,0 +1,25 @@
+{
+  "name": "async-await",
+  "version": "1.0.0",
+  "description": "Show case use of Javascript Node.js v8.12.0 async-await features",
+  "main": "async-await.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node async-await.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srhcrete/async-await.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srhcrete/async-await/issues"
+  },
+  "homepage": "https://github.com/srhcrete/async-await#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.18.4"
+  }
+}
